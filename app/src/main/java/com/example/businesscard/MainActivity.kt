@@ -5,16 +5,22 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.AccountBox
+import androidx.compose.material.icons.rounded.Email
 import androidx.compose.material.icons.rounded.Menu
+import androidx.compose.material.icons.rounded.Phone
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -43,7 +49,8 @@ fun firstColumn(){
     val image = painterResource(R.drawable.logoumt)
     Column(modifier = Modifier
         .fillMaxWidth()
-        .fillMaxHeight(),
+        .fillMaxHeight()
+        .padding(50.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ){
@@ -66,17 +73,26 @@ fun secondColumn(){
     Column(modifier = Modifier
         .fillMaxWidth()
         .fillMaxHeight()
-        .padding(50.dp),
+        .padding(40.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Bottom){
-        Row(){
-            Text(text = "+00 (00) 000 000")
+        Row(modifier = Modifier.padding(15.dp)){
+            Icon(Icons.Rounded.Phone, contentDescription = "Localized description")
+            Spacer(Modifier.width(100.dp))
+            Text(text = "+00 (00) 000 000",
+                 textAlign = TextAlign.Right)
         }
         Row(){
-            Text(text = "@socialMediaHandle")
+            Icon(Icons.Rounded.AccountBox, contentDescription = "Localized description")
+            Spacer(Modifier.width(70.dp))
+            Text(text = "@socialMediaHandle",
+                 textAlign = TextAlign.Right)
         }
-        Row(){
-            Text(text = "email@domain.com")
+        Row(modifier = Modifier.padding(15.dp)){
+            Icon(Icons.Rounded.Email, contentDescription = "Localized description")
+            Spacer(Modifier.width(79.dp))
+            Text(text = "email@domain.com",
+                 textAlign = TextAlign.Right)
         }
     }
 }
